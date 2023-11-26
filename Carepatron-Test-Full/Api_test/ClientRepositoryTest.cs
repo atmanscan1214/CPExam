@@ -53,7 +53,7 @@ namespace Api_test
             client.Email = "juana_changenow@yahoo.com";
             client.PhoneNumber = "2222222";
 
-            var clietUpdate = mockClientRepository.Setup(mcr => mcr.Update(client));
+            var clientUpdate = mockClientRepository.Setup(mcr => mcr.Update(client));
 
 
         }
