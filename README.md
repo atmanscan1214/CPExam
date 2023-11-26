@@ -28,10 +28,13 @@ If time wasn't a constraint what else would you have done?
 
 If time wasn't a constraint, I would have break each component into a service, to cater for future expansion (scope), maintenability and scalability.
 
+
     ClientRepository - into a seperate service (i.e. DataService)
     EmailRepository - service (i.e. EmailService)
     DocumentService - service (i.e. DocumentService)
     
+    
 How was this test overall? I.e too hard, too easy, how long it took, etc
+
 
 The exam is a good code base line, it allows the developer to re-architecture the application and apply necessary best practices for future enhancements.
