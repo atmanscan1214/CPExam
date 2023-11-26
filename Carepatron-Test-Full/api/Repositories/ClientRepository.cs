@@ -1,6 +1,7 @@
 ﻿using api.Data;
 using api.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace api.Repositories
 {
@@ -9,6 +10,7 @@ namespace api.Repositories
         Task<Client[]> Get();
         Task Create(Client client);
         Task Update(Client client);
+        Task<Client[]> SearchClient(string searchstring);
     }
 
     public class ClientRepository : IClientRepository
@@ -57,6 +59,14 @@ namespace api.Repositories
             existingClient.PhoneNumber = client.PhoneNumber;
 
             await dataContext.SaveChangesAsync();
+        }
+
+        public Task<Client[]> SearchClient(string searchstring)
+        {
+            var clients = dataContext.Clients
+                      .Where(c => c.FirstName.Contains(searchstring) || c.LastName.Contains(searchstring)).ToArrayAsync();
+
+            return clients;
         }
     }
 }
